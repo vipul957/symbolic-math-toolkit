@@ -4,6 +4,33 @@
 
 > **Symbolic Math Toolkit** is a explainable symbolic-numeric utility library for research mathematics.
 
+## Start here
+
+**In one sentence:** Make calculus and mathematical transformations inspectable before numerical use.
+
+| If you want to... | Open this first |
+|---|---|
+| Understand the method | [`src/symbolic_math_toolkit/calculus.py`](src/symbolic_math_toolkit/calculus.py) |
+| See the second reusable utility | [`src/symbolic_math_toolkit/validation.py`](src/symbolic_math_toolkit/validation.py) |
+| Run a tiny example | [`examples/quick_demo.py`](examples/quick_demo.py) |
+| Understand the next milestone | [`docs/ROADMAP.md`](docs/ROADMAP.md) |
+| Check correctness | [`tests/`](tests/) and the CI badge above |
+
+### System flow
+
+```mermaid
+flowchart LR
+    A[Domain input] --> B[Validated contract]
+    B --> C[symbolic transform]
+    C --> D[Measured output]
+    D --> E[Limitations and next experiment]
+```
+
+### What is implemented now
+
+The repository currently contains a dependency-light, deterministic baseline with tests. It is intentionally small enough to inspect line by line. The next research layer should preserve the same input contract and evaluation protocol rather than replacing the baseline with an opaque demo.
+
+
 ## Problem statement
 
 Make calculus and modeling transformations inspectable before numerical evaluation.
