@@ -31,6 +31,24 @@ flowchart LR
 The repository currently contains a dependency-light, deterministic baseline with tests. It is intentionally small enough to inspect line by line. The next research layer should preserve the same input contract and evaluation protocol rather than replacing the baseline with an opaque demo.
 
 
+## Visual architecture
+
+The project follows a transparent pipeline. Each stage has a testable responsibility, and the evaluation stage feeds failure information back into the next experiment.
+
+```mermaid
+flowchart LR
+    A["Expression + variable"] --> B["Parse and transform symbolically"]
+    B --> C["Derivative / Taylor expansion"]
+    C --> D["Numerical spot-check"]
+    D --> E["Equivalent and explainable result"]
+    E --> F["Symbolic Math Toolkit
+Evaluation"]
+    F -. feedback .-> C
+```
+
+
+For implementation details, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
 ## Problem statement
 
 Make calculus and modeling transformations inspectable before numerical evaluation.

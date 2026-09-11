@@ -1,0 +1,8 @@
+flowchart LR
+    A["Expression + variable"] --> B["Parse and transform symbolically"]
+    B --> C["Derivative / Taylor expansion"]
+    C --> D["Numerical spot-check"]
+    D --> E["Equivalent and explainable result"]
+    E --> F["Symbolic Math Toolkit
+Evaluation"]
+    F -. feedback .-> C
